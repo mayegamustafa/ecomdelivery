@@ -1,0 +1,50 @@
+import 'package:delivery_boy/_core/_core.dart';
+import 'package:delivery_boy/features/analytics/repository/analytics_repo.dart';
+import 'package:delivery_boy/features/auth/repository/auth_repo.dart';
+import 'package:delivery_boy/features/chat/repository/chat_repo.dart';
+import 'package:delivery_boy/features/kyc/repository/kyc_repo.dart';
+import 'package:delivery_boy/features/my_review/repository/my_review_repo.dart';
+import 'package:delivery_boy/features/notification/repository/notification_repo.dart';
+import 'package:delivery_boy/features/on_board/repository/on_board_repo.dart';
+import 'package:delivery_boy/features/orders/repository/orders_repo.dart';
+import 'package:delivery_boy/features/profile/repository/profile_repo.dart';
+import 'package:delivery_boy/features/redeem_points/repository/redeem_points_repo.dart';
+import 'package:delivery_boy/features/region/repository/region_repo.dart';
+import 'package:delivery_boy/features/settings/repository/settings_repo.dart';
+import 'package:delivery_boy/features/statement/repository/statement_repo.dart';
+import 'package:delivery_boy/features/support_ticket/repository/ticket_repository.dart';
+import 'package:delivery_boy/features/transactions/repository/transactions_repo.dart';
+import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'features/home/repository/home_repo.dart';
+import 'features/referral/repository/referral_repo.dart';
+import 'features/wallet/repository/wallet_repo.dart';
+
+final locate = GetIt.instance;
+Future<void> initServices() async {
+  final pref = await SharedPreferences.getInstance();
+  locate.registerSingleton<SharedPreferences>(pref);
+  locate.registerSingleton<FilePickerRepo>(FilePickerRepo());
+  locate.registerSingleton<LocalDB>(LocalDB());
+  locate.registerSingleton<DioClient>(DioClient());
+  locate.registerSingleton<RemoteDB>(RemoteDB());
+  locate.registerSingleton<SettingsRepo>(SettingsRepo());
+  locate.registerSingleton<RegionRepo>(RegionRepo());
+  locate.registerSingleton<AuthRepo>(AuthRepo());
+  locate.registerSingleton<TicketRepo>(TicketRepo());
+  locate.registerSingleton<WithdrawRepo>(WithdrawRepo());
+  locate.registerSingleton<HomeRepo>(HomeRepo());
+  locate.registerSingleton<ProfileRepo>(ProfileRepo());
+  locate.registerSingleton<ChatRepo>(ChatRepo());
+  locate.registerSingleton<OrderRepo>(OrderRepo());
+  locate.registerSingleton<TransactionRepo>(TransactionRepo());
+  locate.registerSingleton<EarningRepo>(EarningRepo());
+  locate.registerSingleton<ReviewRepo>(ReviewRepo());
+  locate.registerSingleton<OnboardRepo>(OnboardRepo());
+  locate.registerSingleton<AnalyticsRepo>(AnalyticsRepo());
+  locate.registerSingleton<ReferralRepo>(ReferralRepo());
+  locate.registerSingleton<RedeemPointsRepo>(RedeemPointsRepo());
+  locate.registerSingleton<KycRepo>(KycRepo());
+  locate.registerSingleton<NotificationRepo>(NotificationRepo());
+}
