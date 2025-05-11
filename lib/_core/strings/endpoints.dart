@@ -6,7 +6,7 @@ class Endpoints {
   // base url
 
   static const String baseUrl =
-      "https://teal-panther-244063.hostingersite.com/api/delivery_man";
+      "https://totalhealthherbalist.com/api/delivery_man";
 
   static String api = '${testURL ?? baseUrl}/v1/api';
 
